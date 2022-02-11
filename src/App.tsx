@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface AppStates {}
+
+class App extends Component<{}, AppStates> {
+  constructor(props: {}) {
+    super(props);
+  }
+
+  render() {
+    const x = [1, 2, 3];
+    return (
+      <div className='App'>
+        <h1>
+          horny {x} {JSON.stringify(this.props)}
+        </h1>
+      </div>
+    );
+  }
 }
 
 export default App;
