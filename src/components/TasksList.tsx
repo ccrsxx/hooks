@@ -1,6 +1,6 @@
 interface TasksListProps {
-  allTasks: { id: number; title: string; description: string }[];
-  handleDelete: any;
+  allTasks: { id?: number; title?: string; description?: string }[];
+  handleDelete: (taskIdToRemove: number) => void;
 }
 
 export function TasksList({ allTasks, handleDelete }: TasksListProps) {
@@ -10,7 +10,7 @@ export function TasksList({ allTasks, handleDelete }: TasksListProps) {
         <li key={id}>
           <div>
             <h2>{title}</h2>
-            <button onClick={() => handleDelete(id)}>X</button>
+            <button onClick={() => handleDelete(id!)}>X</button>
           </div>
           {!description ? null : <p>{description}</p>}
         </li>

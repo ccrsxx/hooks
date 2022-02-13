@@ -1,10 +1,9 @@
 import { Component } from 'react';
-import { NewTask } from './components';
-import { TasksList } from './components';
+import { NewTask, TasksList } from './components';
 
 interface AppStates {
-  newTask: any;
-  allTasks: any;
+  newTask: { id?: number; title?: string; description?: string };
+  allTasks: { id?: number; title?: string; description?: string }[];
 }
 
 export default class App extends Component<{}, AppStates> {
@@ -22,11 +21,10 @@ export default class App extends Component<{}, AppStates> {
   handleChange({ target }: { target: { name: string; value: string } }) {
     const { name, value } = target;
     this.setState((prevState) => ({
-      newTask: {
-        ...prevState.newTask,
+      newTask: Object.assign({}, prevState.newTask, {
         [name]: value,
         id: Date.now()
-      }
+      })
     }));
   }
 
@@ -41,14 +39,11 @@ export default class App extends Component<{}, AppStates> {
 
   handleDelete(taskIdToRemove: number) {
     this.setState((prevState) => ({
-      allTasks: prevState.allTasks.filter(
-        (task: any) => task.id !== taskIdToRemove
-      )
+      allTasks: prevState.allTasks.filter(({ id }) => id !== taskIdToRemove)
     }));
   }
 
   render() {
-    console.log(this.state);
     return (
       <main>
         <h1>Tasks</h1>

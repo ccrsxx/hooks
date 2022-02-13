@@ -1,6 +1,10 @@
 interface NewTaskProps {
-  newTask: any;
-  handleChange: any;
+  newTask: { id?: number; title?: string; description?: string };
+  handleChange: ({
+    target
+  }: {
+    target: { name: string; value: string };
+  }) => void;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
