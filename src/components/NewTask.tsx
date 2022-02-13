@@ -2,9 +2,7 @@ interface NewTaskProps {
   newTask: { id?: number; title?: string; description?: string };
   handleChange: ({
     target
-  }: {
-    target: { name: string; value: string };
-  }) => void;
+  }: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
