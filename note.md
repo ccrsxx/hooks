@@ -140,3 +140,5 @@ We’ve come to the end of the lesson. We’ve learned about the three major pha
 ## Note
 
 - You can get prevProps and state with componetDidUpdate(), it's not necessarily limit to shouldCompoentUpdate()
+
+
